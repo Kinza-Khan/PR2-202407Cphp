@@ -65,7 +65,6 @@ include("components/header.php");
                 </div>
             </div>
             <!-- Blank End -->
-
 <?php
 include('components/footer.php');
 ?>
