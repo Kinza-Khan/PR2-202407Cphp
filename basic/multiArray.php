@@ -13,7 +13,7 @@
       <div class="container">
         <?php
         $students = [      
-                ["ali",21,"karachi" ] ,
+                ["ali",21,"karachi" ,'ali@gmail.com'] ,
                 ["sana",22 , "Lahore"] , 
                ["hafsa",22 , "Karachi"]
 
@@ -27,16 +27,22 @@
                         <th>Name</th>
                         <th>Age</th>
                         <th>City</th>
+                        <th>Email</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                    foreach($students as $key => $value){
+                    foreach($students as $key => $std){
                     ?>
                     <tr>
-                        <td scope="row"><?php echo $value[0]?></td>
-                        <td><?php echo $value[1]?></td>
-                        <td><?php echo $value[2]?></td>
+                        <?php
+                        foreach($std as $item){
+                        ?>
+                        <td><?php echo $item?></td>
+
+                        <?php
+                        }
+                        ?>
                     </tr>
                     <?php
                     }
