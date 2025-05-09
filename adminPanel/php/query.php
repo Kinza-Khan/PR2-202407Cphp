@@ -128,4 +128,40 @@ if(isset($_POST['addProduct'])){
         }
     }
 }
+
+
+// update product
+if(isset($_POST['updateProduct'])){
+    $productID = $_GET['productID'];
+    $productName = $_POST['pName'];
+    $productDes = $_POST['pDes'];
+    $productPrice = $_POST['pPrice'];
+    $productQty = $_POST['pQty'];
+    $categoryId = $_POST['c_id'];
+    // echo $productId . " " . $productName . " " . $prod
+    $query  = $pdo->prepare("update products set name = :pName , des = :pDes ,price = :pPrice , qty = :pQty , c_id = :cId where id = :pId");
+    if(!empty($_FILES['pImage']['name']))
+    {
+    $productImageName = strtolower($_FILES['pImage']['name']);
+    $productImageTmpName = $_FILES['pImage']['tmp_name'];
+    $extexnsion = pathinfo($productImageName,PATHINFO_EXTENSION);
+    $destination = "images/".$productImageName ;
+      $format = ["jpg" ,"png" ,"jpeg" ,"webp" , "svg"] ; 
+      if(in_array($extexnsion,$format)){
+        if(move_uploaded_file($productImageTmpName,$destination)){
+                $query = $pdo->prepare("update products set name = :pName , des = :pDes ,price = :pPrice , qty = :pQty , c_id = :cId ,image = :image where id = :pId");
+                $query->bindParam('image' ,$productImageName);
+        }       
+      }
+    }
+    $query->bindParam('pId' ,$productID);
+    $query->bindParam('pName',$productName);
+    $query->bindParam('pDes',$productDes);
+    $query->bindParam('pPrice',$productPrice);
+    $query->bindParam('pQty',$productQty);
+    $query->bindParam('cId',$categoryId);
+    $query->execute();
+    echo "<script>alert('product updated');location.assign('viewProduct.php');</script>";
+
+}
 ?>

@@ -1,8 +1,0 @@
--- SELECT DISTINCT city FROM students
--- SELECT city FROM students GROUP BY (city)
--- SELECT COUNT(id) as Total FROM students
--- SELECT SUM(stdSalary) as TotalSalary FROM students
--- SELECT MIN(stdSalary) as minSalary FROM students
--- SELECT MAX(stdSalary) as maxSalary FROM students
--- SELECT AVG(stdSalary) AS 'average' FROM students
-SELECT COUNT(*) as 'Total' , city FROM students GROUP BY(city) 

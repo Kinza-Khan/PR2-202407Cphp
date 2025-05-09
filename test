@@ -1,6 +1,0 @@
-Write a JavaScript program that demonstrates Object-Oriented Programming (OOP) using a class. Create a Car class with a constructor that accepts the car's make, model, and year as parameters. The class should have the following methods:
-
-displayInfo(): Returns a string that displays the full details of the car (make, model, year).
-updateYear(newYear): Updates the car's year property.
-startEngine(): Logs a message indicating that the car's engine has started.
-Create an instance of the Car class, access its properties, and use its methods to update the car's year and display information.

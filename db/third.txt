@@ -1,9 +1,0 @@
--- rename coulmns name 
--- ALTER TABLE students CHANGE age stdAge int
--- ALTER TABLE students CHANGE salary stdSalary int , CHANGE course stdCourse varchar(50) 
--- ALTER TABLE students ADD faculty varchar(50) , ADD stdClass varchar(20)
--- ALTER TABLE students MODIFY stdClass varchar(50) , MODIFY stdAge varchar(50)
--- ALTER TABLE students DROP stdClass 
--- DROP TABLE students
- SELECT * from students
--- UPDATE students SET stdAge = 21  , stdSalary = 50000 , stdCourse = 'DISM' WHERE id = 2

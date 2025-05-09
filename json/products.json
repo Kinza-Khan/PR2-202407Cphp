@@ -1,6 +1,0 @@
-[
-    {"id":1 , "name" : "J. Royal" , "price" : 6000 , "image" : "images/p1.webp"},
-    {"id":2 , "name" : "J. Gull" , "price" : 7000 , "image" : "images/p2.webp"},
-    {"id":3 , "name" : "J. Jasmine" , "price" : 5600 , "image" : "images/p3.webp"},
-    {"id":4 , "name" : "J. Black Rose" , "price" : 66000 , "image" : "images/p4.webp"}
-]
