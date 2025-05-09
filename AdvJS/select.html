@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select</title>
+    <link rel="stylesheet" href="bootstrap-4.6.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+        <div class="container p-5 mt-3">
+            <a href="regularExpression.html" class="btn btn-info">Add</a>
+                <table class="table mt-4">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                            <th>Action</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>                     
+                    </tbody>
+
+                </table>
+        </div>
+
+
+           
+            
+            <!-- Modal -->
+            <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"></h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                              <label for="">Name</label>
+                              <input type="text" name="" id="uName" class="form-control" placeholder="" aria-describedby="helpId">
+                              <!-- <small id="helpId" class="text-muted">Help text</small> -->
+                            </div>
+                            <div class="form-group">
+                                <label for="">Email</label>
+                                <input type="text" name="" id="uEmail" class="form-control" placeholder="" aria-describedby="helpId">
+                                <!-- <small id="helpId" class="text-muted">Help text</small> -->
+                              </div>
+                              <div class="form-group">
+                                <label for="">password</label>
+                                <input type="text" name="" id="uPassword" class="form-control" placeholder="" aria-describedby="helpId">
+                                <!-- <small id="helpId" class="text-muted">Help text</small> -->
+                              </div>
+                              <button class="btn btn-info">Update</button>
+                        </div>
+                        <!-- <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save</button>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            
+    <script src="jquery/jquery-3.7.1.js"></script>
+    <script src="bootstrap-4.6.2-dist/js/bootstrap.min.js"></script>
+    <script>
+        // console.log(localStorage.getItem('students'));
+        // console.log("hello");
+            let students = JSON.parse(localStorage.getItem('students'));
+            console.log(students);
+            function selectData(){
+            let tbody = $("tbody");
+            students.forEach((element,index) => {
+               tbody.append(` <tr>
+                                <td>`+element.name+`</td>
+                                <td>`+element.email+`</td>
+                                <td>`+element.password+`</td>
+                                <td><button onclick="editData(`+index+`)" class="btn btn-info">Edit</button></td>
+                                <td><button class="btn btn-danger">Delete</button></td>                       
+                            </tr>`);                        
+            });
+        }
+        selectData(); 
+        function editData(index){
+          let  singleStudent = students[index];
+          console.log(singleStudent);
+          document.querySelector("#uName").value = singleStudent.name;
+          document.querySelector("#uEmail").value = singleStudent.email;
+          document.querySelector("#uPassword").value = singleStudent.password;
+          $("#modelId").modal('show');
+       }
+
+    </script>
+</body>
+</html>

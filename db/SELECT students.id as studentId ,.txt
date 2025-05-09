@@ -1,0 +1,13 @@
+/* SELECT students.id as studentId , students.name as 'student name' , students.stdCourse as course ,
+faculty.name as 'faculty name'
+FROM 
+students
+LEFT JOIN
+faculty
+ON
+students.f_id = faculty.id*/
+/* SELECT students.name as 'student name ' , students.stdCourse as course , faculty.name as 'faculty name' FROM students
+RIGHT JOIN
+faculty
+ON
+students.f_id = faculty.id*/

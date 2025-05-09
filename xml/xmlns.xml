@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aptech xmlns:e1="www.xmlns.com" xmlns:e2="www.xmlns.com" xmlns:e3="www.xmlns.com">
+
+<e1:employee>
+<e1:id>1</e1:id>
+<e1:name>ali</e1:name>
+<e1:email>email</e1:email>
+<e1:salary>80000</e1:salary>
+</e1:employee>
+
+<e2:employee>
+<e2:id></e2:id>
+<e2:name></e2:name>
+<e2:email></e2:email>
+<e2:salary></e2:salary>
+</e2:employee>
+
+
+<e3:employee>
+<e3:id></e3:id>
+<e3:name></e3:name>
+<e3:email></e3:email>
+<e3:salary></e3:salary>
+</e3:employee>
+</aptech>

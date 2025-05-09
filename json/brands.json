@@ -1,0 +1,19 @@
+{
+    "j" : [
+    {
+        "id":1,"name":"J. Royal Galaxy ","price" :5000 , "image" :"images/p1.webp","des":"Since some online shoppers only scan text on websites, it might be helpful to use bullet points that cover the most important product details. Bullet points should generally be used for specs (like dimensions) or short phrases (like features) so they are quick and easy to read."
+    },
+    {
+        "id":2,"name":"J. Watch","price" :5000 , "image" :"images/p2.webp","des":"Since some online shoppers only scan text on websites, it might be helpful to use bullet points that cover the most important product details. Bullet points should generally be used for specs (like dimensions) or short phrases (like features) so they are quick and easy to read."
+    }
+    ,
+    {
+        "id":3,"name":"J. Emreled Green","price" :5000 , "image" :"images/p3.webp","des":"Since some online shoppers only scan text on websites, it might be helpful to use bullet points that cover the most important product details. Bullet points should generally be used for specs (like dimensions) or short phrases (like features) so they are quick and easy to read."
+    }
+] ,
+"khaddi" : [
+    {"id":4,"name":"Khaddi 1","price":6000,"image":"images/p1.webp","des":"Since some online shoppers only scan text on websites, it might be helpful to use bullet points that cover the most important product details. Bullet points should generally be used for specs (like dimensions) or short phrases (like features) so they are quick and easy to read."},
+    {"id":5,"name":"khaddi 2","price":6000,"image":"images/p2.webp","des":"Since some online shoppers only scan text on websites, it might be helpful to use bullet points that cover the most important product details. Bullet points should generally be used for specs (like dimensions) or short phrases (like features) so they are quick and easy to read."},
+    {"id":6,"name":"khaddi 3","price":6000,"image":"images/p3.webp","des":"Since some online shoppers only scan text on websites, it might be helpful to use bullet points that cover the most important product details. Bullet points should generally be used for specs (like dimensions) or short phrases (like features) so they are quick and easy to read."}
+]
+}

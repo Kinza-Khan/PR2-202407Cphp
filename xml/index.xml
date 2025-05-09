@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aptech>
+
+<departments>
+
+    <admin>
+    <emp1>
+    <id>1</id>
+    <name>ali</name>
+    <email>ali@gmail.com</email>
+    <password>123</password>
+    </emp1>
+    </admin>
+    <hr>
+    <emp2>
+    <id>1</id>
+    <name>aqsa</name>
+    <email>aqsa@gmail.com</email>
+    <password>123aQsa</password>
+    </emp2>
+    <emp3>
+    <id>2</id>
+    <name>hassan</name>
+    <email>hassan@gmail.com</email>
+    <password>123</password>
+    </emp3>
+    </hr>
+    <academics></academics>
+    <sro></sro>
+
+</departments>  
+
+
+
+
+
+</aptech>

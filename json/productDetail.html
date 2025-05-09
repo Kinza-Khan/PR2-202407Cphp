@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" href="bootstrap-4.6.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+    
+<div class="container p-5">
+    <h1 class="text-center p-3">Detail Of The Product</h1>
+    <div class="row" >
+
+        
+       
+
+    </div>
+
+
+</div>
+</body>
+</html>
+<script src="jquery/jquery-3.7.1.js"></script>
+<script src="bootstrap-4.6.2-dist/js/bootstrap.min.js"></script>
+<!-- <script src="js/script.js"></script> -->
+ <script>
+     let  url =  location.href ;
+     console.log(url);
+     let Obj = new URL(url);
+     console.log(Obj);
+     let pId = Obj.searchParams.get('id');
+     let pName = Obj.searchParams.get('name');
+     let pPrice = Obj.searchParams.get('price');
+     let pDes = Obj.searchParams.get('des');
+     let pImage = Obj.searchParams.get('image');
+    //  console.log(pPrice);
+    $(".row").append(` <div class="col-md-6">
+            <div class="card">
+                <img class="card-img-top" src="`+pImage+`" id="img" alt="">             
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">`+pName+`</h4>
+                    <p class="card-text">`+pPrice+`</p>
+                     <p class="card-text">`+pDes+`</p>
+                      <button class="btn btn-info mt-3">Add To Cart</button>
+
+                </div>
+            </div>
+        </div>`)
+
+
+ </script>

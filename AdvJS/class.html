@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOP</title>
+</head>
+<body>
+    
+
+
+<script>
+    class Human{
+        name ;
+        lang ;
+        food ;
+        constructor(sName , sFood , sLang){
+        // console.log(sName,sFood,sLang);
+                this.name = sName ;
+                this.food = sFood ;
+                this.lang = sLang ;
+        } 
+        eat(){
+                return    this.name  +' can eat ' + this.food;
+        }
+        speak(){
+                
+            return this.name +' can speak ' + this.lang ;
+        }
+    }
+    let std1 = new Human('Ali','Biryani','English');
+    console.log(std1.eat());
+    console.log(std1.speak());
+    let std2 = new Human('Sana','Dal Chawal' , 'Urdu');
+    console.log(std2.eat());
+    console.log(std2.speak());
+   
+</script>
+</body>
+</html>

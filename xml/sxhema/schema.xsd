@@ -1,0 +1,51 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    
+    <xs:element name="aptech">
+    <xs:complexType>
+    <xs:sequence>
+    <xs:element name="employee">
+        <xs:complexType>
+        <xs:sequence>
+        <xs:element  name="id" type="xs:int"></xs:element>
+        <xs:element name="name">
+       <xs:simpleType>
+        <xs:restriction base="xs:string">
+        <xs:pattern value="[a-zA-Z\s]{3,10}"></xs:pattern>
+            <!-- <xs:minLength value="3"></xs:minLength>
+            <xs:maxLength value="10"></xs:maxLength> -->
+        </xs:restriction>
+       </xs:simpleType>
+        </xs:element>
+        <xs:element name="email">
+        <xs:simpleType>
+        <xs:restriction base="xs:string">
+        <xs:pattern value="[a-z0-9_]{4,10}[@][a-z]{5}[.][a-z]{3}"></xs:pattern>
+        </xs:restriction>
+        </xs:simpleType>
+        </xs:element>
+        <xs:element name="city">
+        <xs:simpleType>
+        <xs:restriction base="xs:string">
+        <xs:enumeration value="karachi"></xs:enumeration>
+        <xs:enumeration value="lahore"></xs:enumeration>
+        </xs:restriction>
+        </xs:simpleType>
+        </xs:element>
+        </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="students">
+    <xs:complexType>
+    <xs:sequence>
+    <xs:element name="id" type="xs:int"></xs:element>
+    <xs:element name="facultyName" type="xs:string"></xs:element>
+    <xs:element name="course"></xs:element>
+    </xs:sequence>
+    </xs:complexType>
+    </xs:element>
+    <xs:element name="management"></xs:element>
+    </xs:sequence>
+    </xs:complexType>    
+    </xs:element>
+</xs:schema>

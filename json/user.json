@@ -1,0 +1,9 @@
+{
+ "id" : 1 ,
+ "name" : "ali",
+ "address" : {"karachi" : "saddar" , "lahore" : "modal town"},
+ "hobbies" : ["reading" , "coding"],
+ "nic" : true 
+
+
+}

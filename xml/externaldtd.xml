@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE aptech SYSTEM "external.dtd" [
+<!ENTITY aptech "aptech shahrah-e-faisal">
+]>
+<aptech>
+<employee>
+<id>1</id>
+<name>ali</name>
+<email>ali@gmail.com</email>
+<city town="saddar">karachi &aptech;</city>
+</employee>
+
+<employee>
+<id>2</id>
+<name>Hassan</name>
+<email>hassan@gmail.com</email>
+<city town="modal">Lahore  &aptech;  </city>
+</employee>
+</aptech>

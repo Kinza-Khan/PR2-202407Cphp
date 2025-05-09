@@ -1,0 +1,18 @@
+DELIMITER //
+ CREATE TRIGGER generateProductNumber
+ BEFORE INSERT ON products
+ FOR EACH ROW
+ BEGIN
+ IF
+ NEW.productNumber IS NULL THEN
+ SET NEW.productNumber = CONCAT('PR-',UUID());
+ END IF;
+ END
+
+/*DELIMITER // 
+CREATE TRIGGER updateSalary 
+BEFORE UPDATE ON tri 
+FOR EACH ROW 
+BEGIN
+SET NEW.y_pay = NEW.h_pay*2080 ;
+END*/

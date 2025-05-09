@@ -1,0 +1,25 @@
+/* SELECT students.name as student , students.stdSalary as salary , faculty.name as fcaulty , course.name as course
+FROM students 
+INNER  JOIN 
+faculty
+ON
+students.f_id = faculty.id 
+INNER JOIN 
+course
+ON
+students.c_id = course.id
+-- ALTER TABLE students add c_id int , add CONSTRAINT f_k2 FOREIGN KEY(c_id) REFERENCES course (id)*/
+-- SELECT * FROM students WHERE stdSalary = (SELECT MAX(stdSalary) FROM students)
+ CREATE VIEW selectData AS
+ SELECT students.name as student , students.stdSalary as salary , faculty.name as fcaulty , course.name as course
+FROM students 
+INNER  JOIN 
+faculty
+ON
+students.f_id = faculty.id 
+INNER JOIN 
+course
+ON
+students.c_id = course.id
+
+-- SELECT * from selectData

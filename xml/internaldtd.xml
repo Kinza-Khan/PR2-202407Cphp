@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE aptech [
+    <!ELEMENT aptech (employee+)>
+    <!ELEMENT employee (id,name,email,salary,department)>
+    <!ELEMENT id (#PCDATA)>
+    <!ELEMENT name (#PCDATA)>
+    <!ELEMENT email (#PCDATA)>
+    <!ELEMENT salary (#PCDATA)>
+    <!ELEMENT department (#PCDATA)>
+    <!ATTLIST department HR CDATA #REQUIRED>
+    <!ATTLIST department company CDATA #FIXED "Aptech SFC">
+    <!ENTITY aptech "aptech learning shahrah-e-faisal">
+    
+]>
+
+
+
+<aptech>
+    <employee>
+     <id>1</id>
+    <name>Ali</name>
+    <email>ali@gmail.com</email>
+   <salary>70000</salary>  
+   <department company="Aptech SFC" HR="junior">HR Department &aptech;</department> 
+    </employee>
+
+    <employee>
+     <id>2</id>
+    <name>Hamza</name>
+    <email>Hamza@gmail.com</email>
+   <salary>90000</salary>  
+   <department company="Aptech SFC" HR="senior">HR Department &aptech;</department> 
+    </employee>
+</aptech>

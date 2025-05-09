@@ -1,0 +1,8 @@
+ -- CREATE DATABASE aptech
+ 
+ create TABLE students (
+ id int ,
+ name varchar(30),
+ email varchar(50)
+ 
+ )

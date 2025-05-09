@@ -1,0 +1,15 @@
+-- select * FROM students
+--  SELECT id, name , email , stdSalary FROM students  ORDER BY(stdSalary) DESC LIMIT 3
+-- SELECT * FROM students ORDER BY (name) ASC 
+/*INSERT INTO students (name,email,stdAge , city , stdSalary , stdCourse , faculty , stdClass)
+VALUES ('ali','ali123@gmail.com' ,21, 'lahore' ,90000 , 'DISM','aqsa' , '13')*/
+-- UPDATE students SET faculty = 'kinza' , stdClass = '14' WHERE name = 'ali' AND stdCourse = 'DISM'
+-- UPDATE students SET faculty = 'kinza' , stdClass = '14' WHERE name = 'ali' OR stdCourse = 'DISM'
+-- UPDATE students SET faculty = 'aqsa' , stdClass = '15' WHERE NOT name = 'ali'
+-- UPDATE students SET stdSalary = stdSalary + 10000 WHERE stdSalary <= 50000 
+ -- UPDATE students SET stdSalary = stdSalary + 10000 WHERE stdSalary >= 50000 AND stdSalary <= 65000 
+ -- UPDATE students SET stdSalary = stdSalary + 5000 WHERE  stdCourse != 'cpism'
+ -- UPDATE students SET stdCourse = 'HDSE1' WHERE id = 1 OR id = 5 OR id = 6 
+ -- UPDATE students SET stdCourse = 'CPSIM' WHERE id IN(1,5,6)
+-- UPDATE students SET stdSalary = stdSalary + 5000 WHERE stdSalary BETWEEN 40000 AND 65000
+UPDATE students SET city = 'Islamabad' WHERE city NOT IN('karachi' ,'lahore')

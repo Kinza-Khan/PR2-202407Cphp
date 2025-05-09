@@ -1,0 +1,17 @@
+-- CREATE DATABASE aptech
+/* CREATE TABLE students(
+id int PRIMARY key AUTO_INCREMENT ,
+name varchar(50),
+email varchar(50) UNIQUE,
+age int NOT null
+)*/
+-- SELECT * FROM students 
+-- ALTER TABLE students add city varchar(50) DEFAULT 'karachi'
+-- ALTER TABLE students add salary int , add course varchar(50)
+
+-- INSERT INTO students (name,email, age , city , course ,salary) VALUES ('ali','ali@gmail.com',21,'lahore','cpism',85000) 
+
+ -- INSERT INTO students (name , email ,age ) values ('sana khan','sana12@gmail.com',24)
+ 
+/*INSERT INTO students (name,email, age , city , course ,salary) VALUES ('alia alia','alia@gmail.com',21,'lahore','cpism',55000) ,('hamza','hamza@gmail.com',21,'karachi','cpism',45000) */
+SELECT name , email , age from students LIMIT 5

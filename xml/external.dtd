@@ -1,0 +1,7 @@
+<!ELEMENT aptech (employee+)>
+<!ELEMENT employee (id , name , email ,city)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT city (#PCDATA)>
+<!ATTLIST city town CDATA #REQUIRED>
