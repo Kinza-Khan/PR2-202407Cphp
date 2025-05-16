@@ -99,7 +99,7 @@
 					<div class="block1 wrap-pic-w">
 						<img src="adminPanel/images/<?php echo $category['image']?>" alt="IMG-BANNER">
 
-						<a href="product.html" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+						<a href="product.php?cId=<?php echo $category['id']?>" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 							<div class="block1-txt-child1 flex-col-l">
 								<span class="block1-name ltext-102 trans-04 p-b-8">
 								<?php echo $category['name']?>
@@ -386,7 +386,7 @@
 						</div>
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+								<a href="product-detail.php?pId=<?php echo $product['id']?>" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
 									<?php echo $product['name']?>
 								</a>
 								<span class="stext-105 cl3">
