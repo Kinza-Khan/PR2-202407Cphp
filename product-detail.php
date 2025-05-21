@@ -107,7 +107,11 @@ if(isset($_GET['pId'])){
 						
 
 					
-
+							<form action="shoping-cart.php" method="post">
+								<input type="hidden" value="<?php echo $productDetail['id']?>" name="pId">
+								<input type="hidden" value="<?php echo $productDetail['name']?>" name="pName">
+								<input type="hidden" value="<?php echo $productDetail['price']?>" name="pPrice">
+								<input type="hidden" value="<?php echo $productDetail['image']?>" name="pImage">
 							<div class="flex-w flex-r-m p-b-10">
 								<div class="size-204 flex-w flex-m respon6-next">
 									<div class="wrap-num-product flex-w m-r-20 m-tb-10">
@@ -122,11 +126,14 @@ if(isset($_GET['pId'])){
 										</div>
 									</div>
 
-									<button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+									<button name="addToCart" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
 										Add to cart
 									</button>
 								</div>
 							</div>	
+							</form>
+
+
 						</div>
 
 						<!--  -->
