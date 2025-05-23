@@ -9,13 +9,32 @@ include("components/header.php");
 if(isset($_POST['addToCart'])){
 
 	if(isset($_SESSION['cart'])){
+
+			$productIdsArray = array_column($_SESSION['cart'],'productId'); // [1,3,5,7]
+			if(in_array($_POST['pId'], $productIdsArray)){  // 10,[1,3,5,7]
+					echo "<script>alert('product is already Added');</script>";
+			}
+			else{
 			$count = count($_SESSION['cart']);
 			$_SESSION['cart'][$count] = array("productId"=>$_POST['pId'],"productName"=>$_POST['pName'],"productPrice"=>$_POST['pPrice'],"productQty"=>$_POST['num-product'],"productImage"=>$_POST['pImage']);
 		echo "<script>alert('product Added');</script>";
+		}
 	}
 	else{
 		$_SESSION['cart'][0] = array("productId"=>$_POST['pId'],"productName"=>$_POST['pName'],"productPrice"=>$_POST['pPrice'],"productQty"=>$_POST['num-product'],"productImage"=>$_POST['pImage']);
 		echo "<script>alert('product Added');</script>";
+	}
+}
+
+// remove
+if(isset($_GET['remove'])){
+	$productId = $_GET['remove'];
+	foreach($_SESSION['cart'] as $key => $value){
+		if($value['productId'] == $productId){
+			unset($_SESSION['cart'][$key]);
+			$_SESSION['cart'] = array_values($_SESSION['cart']);
+			echo "<script>alert('product remove successfully');location.assign('shoping-cart.php')</script>";
+		}
 	}
 }
 
@@ -49,6 +68,7 @@ if(isset($_POST['addToCart'])){
 									<th class="column-3">Price</th>
 									<th class="column-4">Quantity</th>
 									<th class="column-5">Total</th>
+									<th class="column-5">Action</th>
 								</tr>
 
 								<?php
@@ -77,6 +97,7 @@ if(isset($_POST['addToCart'])){
 										</div>
 									</td>
 									<td class="column-5">$<?php echo $value['productQty']*$value['productPrice']?></td>
+									<td class="column-6"><a href="?remove=<?php echo $value['productId']?>" class="btn btn-danger">Remove</a></td>
 								</tr>
 								<?php
 								}
