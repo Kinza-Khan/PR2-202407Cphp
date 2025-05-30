@@ -1,5 +1,6 @@
 
 <?php
+include("php/query.php");
 include('components/header.php');
 ?>
 

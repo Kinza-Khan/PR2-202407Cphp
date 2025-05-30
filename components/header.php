@@ -52,14 +52,30 @@
 						<a href="#" class="flex-c-m trans-04 p-lr-25">
 							Help & FAQs
 						</a>
-
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							My Account
+						<?php
+						if(isset($_SESSION['userEmail'])){
+						?>
+						<a href="logout.php" class="flex-c-m trans-04 p-lr-25">
+						Logout
 						</a>
-
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							EN
+						<?php
+						}else{
+							?>
+			<a href="login.php" class="flex-c-m trans-04 p-lr-25">
+						Login
 						</a>
+							<?php
+						}
+						?>
+						<?php
+						if(isset($_SESSION['userEmail'])){
+						?>
+						<a href="#" class="flex-c-m trans-04 p-lr-25">
+							<?php echo $_SESSION['userName']?>
+						</a>
+						<?php
+						}
+						?>
 
 						<a href="#" class="flex-c-m trans-04 p-lr-25">
 							USD
