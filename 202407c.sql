@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2025 at 08:12 AM
+-- Generation Time: Jun 02, 2025 at 08:59 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -70,6 +70,49 @@ INSERT INTO `products` (`id`, `name`, `des`, `price`, `qty`, `image`, `c_id`) VA
 (3, ' Share Beige Bucket Bag IWB-BKB24-008', 'Sleek and versatile, this bag is perfect for everyday use. With a roomy interior, drawstring closure, and comfortable straps, it’s both stylish and practical for any occasion.', 7500, 75, 'gallery-01.jpg', 4),
 (4, 'WASIM AKRAM 502', 'WA 502 is a scent for the man who defies convention with a strong intellect. A proactive blend of citrus and woods that liberates the senses. Intense sensual fragrance that offers a singular statement, determination and aspiration of today’s modern man. WA 502 by J. unites the zest of citrus, cardamom, apple and sweet orange. An arresting transformation can then be felt with the freshness of Juniper berries, lavender and clary sage absolute. New Ambertonic, Patchouli heart and Oak moss fully jus', 6000, 45, 'p3.webp', 2);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `role`
+--
+
+CREATE TABLE `role` (
+  `id` int(11) NOT NULL,
+  `name` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `role`
+--
+
+INSERT INTO `role` (`id`, `name`) VALUES
+(1, 'admin'),
+(2, 'user');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(20) NOT NULL,
+  `role_id` int(11) NOT NULL DEFAULT 2
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `role_id`) VALUES
+(1, 'admin', 'admin@gmail.com', '123', 1),
+(2, 'kinza', 'kinza@gmail.com', '123', 2),
+(3, 'kinza khan', 'kinza123@gmail.com', '123', 2),
+(4, 'kinza khan', 'kinzakhan@gmail.com', '123', 2);
+
 --
 -- Indexes for dumped tables
 --
@@ -88,6 +131,19 @@ ALTER TABLE `products`
   ADD KEY `c_id` (`c_id`);
 
 --
+-- Indexes for table `role`
+--
+ALTER TABLE `role`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `role_id` (`role_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -104,6 +160,18 @@ ALTER TABLE `products`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `role`
+--
+ALTER TABLE `role`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- Constraints for dumped tables
 --
 
@@ -112,6 +180,12 @@ ALTER TABLE `products`
 --
 ALTER TABLE `products`
   ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`c_id`) REFERENCES `categories` (`id`);
+
+--
+-- Constraints for table `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -22,7 +22,7 @@ if(isset($_POST['addToCart'])){
 	}
 	else{
 		$_SESSION['cart'][0] = array("productId"=>$_POST['pId'],"productName"=>$_POST['pName'],"productPrice"=>$_POST['pPrice'],"productQty"=>$_POST['num-product'],"productImage"=>$_POST['pImage']);
-		echo "<script>alert('product Added');</script>";
+		echo "<script>alert('product Added');location.assign('index.php')</script>";
 	}
 }
 
@@ -201,9 +201,22 @@ if(isset($_GET['remove'])){
 							</div>
 						</div>
 
-						<button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
+						<?php
+						if(isset($_SESSION['userEmail'])){
+						?>
+						<button name="checkout" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
 							Proceed to Checkout
 						</button>
+						<?php
+						}
+						else{
+							?>
+							<a  href="login.php" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
+							Proceed to Checkout
+						</a>
+							<?php
+						}
+						?>
 					</div>
 				</div>
 			</div>
