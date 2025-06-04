@@ -38,6 +38,59 @@ if(isset($_GET['remove'])){
 	}
 }
 
+
+// qtyupdate
+if(isset($_POST['updateQty'])){
+	$pId = $_POST['productId'] ;
+	$pQty = $_POST['productQty'] ;
+	foreach($_SESSION['cart'] as $key => $value){
+		if($value['productId'] == $pId ){
+			$_SESSION['cart'][$key]['productQty'] = $pQty;
+		}
+	}
+
+}
+
+// checkout
+if(isset($_POST['checkout'])){
+	$userId = $_SESSION['userId'];
+	$userName = $_SESSION['userName'];
+	$userEmail = $_SESSION['userEmail'];
+	foreach($_SESSION['cart'] as $key=> $value){
+		$productId = $value['productId'];
+		$productName = $value['productName'];
+		$productPrice = $value['productPrice'];
+		$productQty = $value['productQty'];
+		$query = $pdo->prepare("insert into orders (u_id , u_name , u_email ,p_id , p_name , p_price , p_qty) values(:u_id , :u_name , :u_email ,:p_id , :p_name , :p_price , :p_qty)");
+		$query->bindParam('u_id',$userId);
+		$query->bindParam('u_name',$userName);
+		$query->bindParam('u_email',$userEmail);
+		$query->bindParam('p_id',$productId);
+		$query->bindParam('p_name',$productName);
+		$query->bindParam('p_price',$productPrice);
+		$query->bindParam('p_qty',$productQty);
+		$query->execute();
+		
+	}
+
+	$totalAmount = 0 ;
+	$totalQty = 0 ;
+	foreach($_SESSION['cart'] as $key => $value){
+		$totalAmount += $value['productPrice']*$value['productQty'];
+		$totalQty += $value['productQty'];
+	}
+	
+	$invoiceQuery = $pdo->prepare("insert into invoices (u_id , u_name , u_email ,total_amount, total_qty) values(:u_id , :u_name , :u_email , :total_amount, :total_qty)"); 
+	$invoiceQuery->bindParam('u_id',$userId);
+	$invoiceQuery->bindParam('u_name',$userName);
+	$invoiceQuery->bindParam('u_email',$userEmail);
+	$invoiceQuery->bindParam('total_amount',$totalAmount);
+	$invoiceQuery->bindParam('total_qty',$totalQty);
+	$invoiceQuery->execute();
+	unset($_SESSION['cart']);
+	echo "<script>alert('order added successfully');location.assign('shoping-cart.php')</script>";
+}
+
 ?>
 	<!-- breadcrumb -->
 	<div class="container">
@@ -55,7 +108,7 @@ if(isset($_GET['remove'])){
 		
 
 	<!-- Shoping Cart -->
-	<form class="bg0 p-t-75 p-b-85">
+	<form method="post" class="bg0 p-t-75 p-b-85">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
@@ -84,14 +137,16 @@ if(isset($_GET['remove'])){
 									<td class="column-2"><?php echo $value['productName']?></td>
 									<td class="column-3">$ <?php echo $value['productPrice']?></td>
 									<td class="column-4">
-										<div class="wrap-num-product flex-w m-l-auto m-r-0">
-											<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
-												<i class="fs-16 zmdi zmdi-minus"></i>
-											</div>
 
-											<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product1" value="<?php echo $value['productQty']?>">
+						<div class="wrap-num-product flex-w m-l-auto m-r-0 qtyBox">
+					<input type="hidden" class="pId" name="pId" value="<?php echo $value['productId']?>" >
+							<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m dec">
+								<i class="fs-16 zmdi zmdi-minus"></i>
+							</div>
 
-											<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
+					<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product1" value="<?php echo $value['productQty']?>">
+
+							<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m inc">
 												<i class="fs-16 zmdi zmdi-plus"></i>
 											</div>
 										</div>
